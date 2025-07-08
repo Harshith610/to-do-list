@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🧠 Task Manager</h1>
+      <button id="theme-toggle">🌙</button>
+    </header>
+
+    <section class="task-creator">
+      <input type="text" id="task-input" placeholder="Task title..." />
+      <input type="date" id="due-date" />
+      <select id="task-tag">
+        <option value="General">General</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Urgent">Urgent</option>
+      </select>
+      <button onclick="addTask()">➕</button>
+    </section>
+
+    <section class="filters">
+      <input type="text" id="search" placeholder="🔍 Search tasks..." onkeyup="renderTasks()" />
+      <select id="filter-tag" onchange="renderTasks()">
+        <option value="all">All Tags</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Urgent">Urgent</option>
+        <option value="General">General</option>
+      </select>
+      <select id="filter-status" onchange="renderTasks()">
+        <option value="all">All</option>
+        <option value="todo">To-Do</option>
+        <option value="done">Completed</option>
+      </select>
+    </section>
+
+    <ul id="task-list"></ul>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="edit-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Edit Task</h3>
+      <input type="text" id="edit-title" />
+      <input type="date" id="edit-date" />
+      <select id="edit-tag">
+        <option value="General">General</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Urgent">Urgent</option>
+      </select>
+      <button onclick="saveEdit()">Save</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
